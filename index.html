@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASR Development Consulting Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="asr.png" type="image/x-icon">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        .bg-navy { background-color: #001226; } 
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        
+        .nav-link {
+            color: #D4AF37;
+            position: relative;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #007FFF; 
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .btn-custom {
+            background-color: #D4AF37;
+            color: #001226;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-custom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background-color: #007FFF;
+            transition: width 0.4s ease;
+        }
+        .btn-custom:hover::after { width: 100%; }
+
+        .glass-nav {
+            background: rgba(0, 18, 38, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown-card {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .group:hover .dropdown-card {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-icon:hover { color: #D4AF37; transform: translateY(-3px); background-color: rgba(212, 175, 55, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+
+    <button id="scrollTop" class="fixed bottom-6 right-6 z-[100] bg-gold text-navy w-12 h-12 rounded-full shadow-2xl hidden items-center justify-center hover:scale-110 transition-all duration-300" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <nav class="glass-nav text-white sticky top-0 z-50 border-b border-gold/20">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <img src="asr.png" alt="ASR Logo" class="h-10 md:h-12 w-auto brightness-200">
+            </div>
+            
+            <ul class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-[2px] items-center">
+                <li><a href="#about" class="nav-link">Haqqımızda</a></li>
+                <li class="relative group">
+                    <a href="#services" class="nav-link flex items-center">
+                        Xidmətlər <i class="fas fa-chevron-down ml-2 text-[8px]"></i>
+                    </a>
+                    <div class="dropdown-card absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[350px] bg-navy rounded-2xl shadow-2xl border border-gold/30 p-6 text-white">
+                        <div class="grid grid-cols-1 gap-2">
+                            <a href="#services" class="flex items-center p-3 rounded-xl bg-white/5 border border-gold/20 hover:border-gold hover:bg-gold/10 transition-all">
+                                <i class="fas fa-check-circle text-gold mr-3"></i> ISO TƏTBİQİ
+                            </a>
+                            <a href="#services" class="flex items-center p-3 rounded-xl bg-white/5 border border-gold/20 hover:border-gold hover:bg-gold/10 transition-all">
+                                <i class="fas fa-check-circle text-gold mr-3"></i> QİDA TƏHLÜKƏSİZLİYİ
+                            </a>
+                            <a href="#services" class="flex items-center p-3 rounded-xl bg-white/5 border border-gold/20 hover:border-gold hover:bg-gold/10 transition-all">
+                                <i class="fas fa-check-circle text-gold mr-3"></i> HR KONSALTİNQ
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#certs" class="nav-link">Sertifikatlar</a></li>
+                <li><a href="#contact" class="nav-link">Əlaqə</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/994507770902" class="btn-custom px-6 py-2.5 rounded-full text-[10px] font-black transition-all text-navy tracking-tighter">
+                    PULSUZ DİAQNOSTİKA
+                </a>
+                <button class="lg:hidden text-gold text-2xl" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="relative h-[85vh] flex items-center justify-center text-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" class="w-full h-full object-cover" alt="Modern Building">
+            <div class="absolute inset-0 bg-navy/70"></div>
+        </div>
+        
+        <div class="relative z-10 px-4 max-w-5xl">
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight italic">
+                Strateji Həllər, <br> <span class="text-gold uppercase not-italic">Dayanıqlı İnkişaf.</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-2xl font-light mb-10 max-w-3xl mx-auto leading-relaxed">
+                2009-cu ildən bəri 15 illik qlobal təcrübə və peşəkar komanda ilə biznesinizi zirvəyə daşıyırıq.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#services" class="btn-custom px-12 py-4 rounded-sm text-navy font-black shadow-xl uppercase text-sm tracking-widest text-center">Xidmətlərimiz</a>
+                <a href="https://wa.me/994507770902" target="_blank" class="bg-transparent border-2 border-white/30 text-white px-12 py-4 rounded-sm font-bold hover:border-gold hover:text-gold transition-all duration-300 uppercase text-sm tracking-widest backdrop-blur-md text-center">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" id="counter-section">
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-black text-navy counter" data-target="15">0</h3>
+                    <p class="text-gold font-bold uppercase text-xs mt-2">İllik Təcrübə</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-black text-navy counter" data-target="150">0</h3>
+                    <p class="text-gold font-bold uppercase text-xs mt-2">Uğurlu Layihə</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-black text-navy counter" data-target="100">0</h3>
+                    <p class="text-gold font-bold uppercase text-xs mt-2">Müştəri Məmnuniyyəti %</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-black text-navy">24/7</h3>
+                    <p class="text-gold font-bold uppercase text-xs mt-2">Dəstək</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <section id="certs" class="py-24 bg-navy text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-black text-white mb-20 uppercase tracking-widest italic underline decoration-gold underline-offset-[12px]">Sertifikatlar</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                
+                <div class="cert-card bg-white/5 border border-white/10 p-12 rounded-2xl group transition-all duration-500 hover:bg-white/10 hover:border-gold shadow-2xl">
+                    <div class="h-32 flex items-center justify-center mb-8 overflow-hidden">
+                        <img src="asr hcp.png" alt="ISO" class="max-h-full w-auto brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-gold font-black text-xl uppercase tracking-tighter">ISO 9001</h4>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-[3px]">Keyfiyyət Standartı</p>
+                    </div>
+                </div>
+
+                <div class="cert-card bg-white/5 border border-white/10 p-12 rounded-2xl group transition-all duration-500 hover:bg-white/10 hover:border-gold shadow-2xl">
+                    <div class="h-32 flex items-center justify-center mb-8 overflow-hidden">
+                        <img src="asr haccp.png" alt="HACCP" class="max-h-full w-auto brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-gold font-black text-xl uppercase tracking-tighter">HACCP</h4>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-[3px]">Qida Təhlükəsizliyi</p>
+                    </div>
+                </div>
+
+                <div class="cert-card bg-white/5 border border-white/10 p-12 rounded-2xl group transition-all duration-500 hover:bg-white/10 hover:border-gold shadow-2xl">
+                    <div class="h-32 flex items-center justify-center mb-8 overflow-hidden">
+                        <img src="BRGGS.png" alt="BRCGS" class="max-h-full w-auto brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500 transform group-hover:scale-110">
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-gold font-black text-xl uppercase tracking-tighter">BRCGS</h4>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-[3px]">Qlobal Sertifikat</p>
+                    </div>
+                </div>
+
+                <div class="cert-card bg-white/5 border border-white/10 p-12 rounded-2xl group transition-all duration-500 hover:bg-white/10 hover:border-gold shadow-2xl">
+                    <div class="h-32 flex items-center justify-center mb-8 overflow-hidden">
+                        <img src="aqta.png" alt="AQTA" class="max-h-full w-auto brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500 transform group-hover:scale-110 object-contain">
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-gold font-black text-xl uppercase tracking-tighter">AQTA RƏSMİ</h4>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-[3px]">Dövlət Agentliyi</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+                
+
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="bg-navy rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 p-12 text-white">
+                    <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">Bizimlə <span class="text-gold">Əlaqə</span></h2>
+                    <div class="space-y-6">
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center mr-5 group-hover:bg-gold transition-all">
+                                <i class="fas fa-phone text-gold group-hover:text-navy"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-bold">Telefon</p>
+                                <a href="tel:+994507770902" class="text-lg font-bold hover:text-gold">+994 (50) 777 09 02</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center mr-5 group-hover:bg-gold transition-all">
+                                <i class="fas fa-envelope text-gold group-hover:text-navy"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-bold">E-poçt</p>
+                                <a href="mailto:info@asrgroup.az" class="text-lg font-bold hover:text-gold">info@asrgroup.az</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <p class="text-xs text-gold uppercase font-bold mb-4 tracking-widest">Bizi İzləyin</p>
+                        <div class="flex space-x-4">
+                            <a href="https://instagram.com/asr_konsalting" target="_blank" class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center footer-icon transition-all"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="https://youtube.com/@asrgroup" target="_blank" class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center footer-icon transition-all"><i class="fab fa-youtube text-xl"></i></a>
+                            <a href="https://t.me/asrgroup" target="_blank" class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center footer-icon transition-all"><i class="fab fa-telegram-plane text-xl"></i></a>
+                            <a href="https://facebook.com/asrgroup" target="_blank" class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center footer-icon transition-all"><i class="fab fa-facebook-f text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 bg-gold p-12">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Adınız və Soyadınız" class="w-full p-4 rounded-xl outline-none focus:ring-2 focus:ring-navy transition-all">
+                        <input type="email" placeholder="E-poçt ünvanınız" class="w-full p-4 rounded-xl outline-none focus:ring-2 focus:ring-navy transition-all">
+                        <textarea placeholder="Mesajınız" rows="4" class="w-full p-4 rounded-xl outline-none focus:ring-2 focus:ring-navy transition-all"></textarea>
+                        <button class="w-full bg-navy text-white font-black py-4 rounded-xl hover:bg-opacity-90 transition-all uppercase tracking-widest">Göndər</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy py-10 text-center border-t border-gold/10">
+        <img src="asr.png" alt="Logo" class="h-8 mx-auto mb-6 opacity-50 brightness-200">
+        <p class="text-gray-500 text-[10px] uppercase tracking-[5px]">© 2009-2026 ASR Development Consulting Group.</p>
+    </footer>
+
+    <script>
+        // Mobil Menyu
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const box = document.getElementById('mobile-menu-box');
+            box.classList.toggle('hidden');
+        });
+
+        // Scroll Top Düyməsi
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTop');
+            btn.style.display = window.scrollY > 600 ? 'flex' : 'none';
+        });
+
+        // SAYĞAC FUNKSİYASI (Rəqəmlərin artması)
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Rəqəmlər görünən kimi başlasın
+        const section = document.getElementById('counter-section');
+        let started = false;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > (section.offsetTop - window.innerHeight)) {
+                if (!started) {
+                    startCounters();
+                    started = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
