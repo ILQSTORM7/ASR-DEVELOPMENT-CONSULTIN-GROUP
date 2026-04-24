@@ -1,0 +1,113 @@
+body {
+        font-family: 'Montserrat', sans-serif;
+        scroll-behavior: smooth;
+        cursor: url('https://cur.cursors-4u.net/others/oth10/oth973.cur'), auto;
+}
+
+.bg-navy {
+        background-color: #001226;
+}
+
+.text-gold {
+        color: #D4AF37;
+}
+
+.bg-gold {
+        background-color: #D4AF37;
+}
+
+.text-navy {
+        color: #001226;
+}
+
+.nav-link {
+        color: #D4AF37;
+        position: relative;
+        padding-bottom: 5px;
+        transition: all 0.3s ease;
+}
+
+.nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #007FFF;
+        transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+        width: 100%;
+}
+
+.btn-custom {
+        background-color: #D4AF37;
+        color: #001226;
+        position: relative;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.btn-custom:hover {
+        transform: scale(1.02);
+}
+
+.glass-nav {
+        background: rgba(0, 18, 38, 0.95);
+        backdrop-filter: blur(10px);
+}
+
+.dropdown-card {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.group:hover .dropdown-card {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+}
+
+.cert-card {
+        transition: all 0.5s ease;
+}
+
+.cert-card:hover {
+        transform: translateY(-10px) scale(1.03);
+}
+
+button,
+a,
+.cursor-pointer,
+input,
+textarea {
+        cursor: pointer !important;
+        transition: all 0.3s ease;
+}
+
+.swiper {
+        width: 100%;
+        height: 85vh;
+}
+
+.swiper-slide {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+        background: #D4AF37 !important;
+}
+
+#modalImg {
+        transition: transform 0.3s ease;
+}
